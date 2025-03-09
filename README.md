@@ -1,195 +1,116 @@
-# WordPress Learning Management System (LMS)
+# Online Learning Management System (LMS) WordPress Plugin
 
-![LMS Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![WordPress](https://img.shields.io/badge/wordpress-6.0%2B-green.svg)
-![PHP](https://img.shields.io/badge/php-7.4%2B-purple.svg)
-![License](https://img.shields.io/badge/license-MIT-orange.svg)
-
-A comprehensive Learning Management System (LMS) WordPress plugin that enables educational institutions and content creators to create, manage, and deliver online courses efficiently.
+[![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue.svg)](https://wordpress.org/)
+[![PHP](https://img.shields.io/badge/PHP-7.4%2B-purple.svg)](https://php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-5.6%2B-orange.svg)](https://www.mysql.com/)
+[![License](https://img.shields.io/badge/License-GPL%20v2-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg)](https://github.com/yourusername/online-lms/releases)
 
 ## Table of Contents
+- [Description](#description)
 - [Features](#features)
-- [Requirements](#requirements)
+  - [Admin Features](#admin-features)
+  - [Instructor Features](#instructor-features)
+  - [Student Features](#student-features)
 - [Installation](#installation)
+- [Requirements](#requirements)
 - [Configuration](#configuration)
-- [User Roles](#user-roles)
-- [Directory Structure](#directory-structure)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
+  - [Payment Gateway Setup](#payment-gateway-setup)
+  - [Email Notifications](#email-notifications)
+  - [Certificate Templates](#certificate-templates)
+- [Usage](#usage)
+  - [For Administrators](#for-administrators)
+  - [For Instructors](#for-instructors)
+  - [For Students](#for-students)
 - [Changelog](#changelog)
 - [License](#license)
+- [Contributing](#contributing)
+
+## Description
+A comprehensive Learning Management System plugin for WordPress that enables creation and management of online courses with multiple user roles (Admin, Instructor, Student), course management, quiz functionality, and certificate generation.
 
 ## Features
 
 ### Admin Features
-- 📊 Comprehensive dashboard with real-time statistics
-- 👥 Instructor management system
-- ✅ Course approval workflow
-- 💰 Revenue tracking and reporting
-- ⚙️ Site-wide settings configuration
+- Dashboard with statistics (total courses, enrolled students, revenue)
+- Instructor management (approve/reject applications)
+- Course approval workflow
+- Revenue reports with date filters
+- Site settings configuration
 
 ### Instructor Features
-- 📝 Intuitive course creation interface
-- 📊 Student progress tracking
-- 💰 Revenue dashboard
-- 💬 Discussion board moderation
-- 📚 Lesson and quiz management
+- Course creation interface (title, description, lessons, quizzes)
+- Student progress tracking
+- Revenue dashboard (earnings, pending payments)
+- Discussion board moderation
 
 ### Student Features
-- 📚 Course enrollment system
-- 📊 Personal learning dashboard
-- ✍️ Quiz and assignment submission
-- 🎓 Automatic certificate generation
-- ⭐ Course rating and review system
-
-## Requirements
-
-- WordPress 6.0 or higher
-- PHP 7.4 or higher
-- MySQL 5.6 or higher
-- Advanced Custom Fields PRO plugin
-- Modern web browser
+- Course enrollment system
+- Learning dashboard (progress, upcoming deadlines)
+- Quiz/assignment submission interface
+- Certificate generation upon completion
+- Course rating and review system
 
 ## Installation
 
-1. Download the latest release from the releases page
-2. Upload the plugin through WordPress admin panel:
-   ```
-   Plugins > Add New > Upload Plugin
-   ```
-3. Or extract the ZIP file to your `/wp-content/plugins/` directory
-4. Activate the plugin through the 'Plugins' menu in WordPress
-5. Navigate to LMS Settings to configure the plugin
+1. Upload the `online-lms` folder to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Configure the plugin settings via the LMS menu in the admin dashboard
+
+## Requirements
+- WordPress 5.0 or higher
+- PHP 7.4 or higher
+- MySQL 5.6 or higher
 
 ## Configuration
 
-### Initial Setup
+### Payment Gateway Setup
+1. Navigate to LMS Settings > Payments
+2. Enter your payment gateway credentials
+3. Configure payment settings and commission rates
 
-1. Navigate to `LMS > Settings` in your WordPress admin panel
-2. Configure the following essential settings:
-   - Payment gateway credentials
-   - Email notification templates
-   - Certificate design
-   - Course approval workflow
-   - Site-wide settings
+### Email Notifications
+1. Go to LMS Settings > Notifications
+2. Configure email templates for various events
+3. Enable/disable specific notifications
 
-### Advanced Custom Fields
+### Certificate Templates
+1. Access LMS Settings > Certificates
+2. Upload or design certificate templates
+3. Configure certificate generation settings
 
-The plugin requires ACF PRO for custom fields. Required field groups will be automatically created during installation.
+## Usage
 
-```php
-// Example of course fields structure
-{
-    "key": "group_course_details",
-    "title": "Course Details",
-    "fields": [
-        {
-            "key": "field_course_price",
-            "label": "Course Price",
-            "name": "course_price",
-            "type": "number"
-        },
-        // ... other fields
-    ]
-}
-```
+### For Administrators
+1. Access the LMS dashboard via WordPress admin panel
+2. Manage instructors, courses, and system settings
+3. Monitor revenue and generate reports
 
-## User Roles
+### For Instructors
+1. Log in to WordPress
+2. Access the Instructor Dashboard
+3. Create and manage courses
+4. Track student progress and revenue
 
-### Administrator
-- Manage all aspects of the LMS
-- Access to all features and settings
-- Revenue reports and analytics
-
-### Instructor
-- Create and manage courses
-- Track student progress
-- Access revenue dashboard
-- Moderate discussions
-
-### Student
-- Enroll in courses
-- Submit assignments and quizzes
-- Track personal progress
-- Download certificates
-
-## Directory Structure
-
-```
-wp-content/plugins/jaineet-lms/
-├── assets/
-│   ├── css/
-│   ├── js/
-│   └── images/
-├── includes/
-│   ├── admin/
-│   ├── instructor/
-│   ├── student/
-│   ├── acf/
-│   └── functions/
-├── templates/
-│   ├── admin/
-│   ├── instructor/
-│   └── student/
-├── languages/
-├── jaineet-lms.php
-└── README.md
-```
-
-## Documentation
-
-Detailed documentation is available in the [Wiki](https://github.com/yourusername/jaineet-lms/wiki).
-
-### Quick Start Guides:
-- [Administrator Guide](docs/admin-guide.md)
-- [Instructor Guide](docs/instructor-guide.md)
-- [Student Guide](docs/student-guide.md)
-
-### Development
-- [API Documentation](docs/api.md)
-- [Hook Reference](docs/hooks.md)
-- [Filter Reference](docs/filters.md)
-
-## Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/AmazingFeature`
-3. Commit changes: `git commit -m 'Add AmazingFeature'`
-4. Push to branch: `git push origin feature/AmazingFeature`
-5. Open a Pull Request
-
+### For Students
+1. Browse available courses
+2. Enroll in courses
+3. Access course materials and submit assignments
+4. Download certificates upon completion
+5. 
 ## Changelog
 
-### [1.0.0] - 2025-02-25
+### Version 1.0.0 (2025-03-09)
 - Initial release
-- Core LMS functionality
-- Three user roles: Admin, Instructor, Student
-- Course creation and management
-- Student enrollment system
-- Quiz and assignment functionality
+- Basic course management functionality
+- User role management
+- Quiz system implementation
 - Certificate generation
-- Revenue tracking
+- Payment integration
+- Progress tracking
 
 ## License
+This plugin is licensed under the GPL v2 or later.
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Author
-
-**Jaineet**
-- Created: 2025-02-25
-- Last Updated: 2025-02-25 08:27:22 UTC
-- WordPress Username: jaineet2
-
-## Support
-
-For support, please:
-1. Check the [Documentation](docs/)
-2. Search [Issues](https://github.com/yourusername/jaineet-lms/issues)
-3. Create a new issue if needed
-
----
-
-💡 **Pro Tip:** Regular updates and backups are recommended for optimal performance and security.
+## Contributing
+Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
